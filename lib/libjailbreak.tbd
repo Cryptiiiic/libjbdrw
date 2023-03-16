@@ -1,0 +1,59 @@
+---
+archs:                 [ armv7, armv7s, arm64, arm64e ]
+platform:              (null)
+install-name:          '/var/jb/basebin/libjailbreak.dylib'
+current-version:       1
+compatibility-version: 1
+exports:
+  - archs:                [ armv7, armv7s, arm64, arm64e ]
+    symbols:              [ _CEQueryContext_dump_entitlements,
+                            _CEQueryContext_replace_entitlements,
+                            _Fugu14Kcall_onThread, _OSEntitlements_dump_entitlements,
+                            _OSEntitlements_get_cdhash, _OSEntitlements_resign,
+                            __patchfind_in_region, _bootInfo_getArray,
+                            _bootInfo_getData, _bootInfo_getObject,
+                            _bootInfo_getSlidUInt64, _bootInfo_getUInt64,
+                            _bootInfo_setObject, _clearWindows,
+                            _cr_label_get_OSEntitlements,
+                            _cr_label_replace_entitlements, _cs_allow_invalid,
+                            _csblob_get_pmap_cs_entry, _destroyPACPrimitives,
+                            _entitle_proc, _entitle_vnode, _finalizePACPrimitives,
+                            _gIsJailbreakd, _gKCallStatus, _gPPLRWStatus,
+                            _gUserReturnDidHappen, _gUserReturnThreadContext,
+                            _getConcurrentWindows, _getExecutablePath,
+                            _getUserReturnThreadContext, _getWindow,
+                            _get_cspr_kern_intr_dis, _get_cspr_kern_intr_en,
+                            _handoffPPLPrimitives, _initPACPrimitives,
+                            _initPPLPrimitives, _jbdEntitleProc, _jbdEntitleVnode,
+                            _jbdFinalizeKcall, _jbdGetPPLRWPage, _jbdGetStatus,
+                            _jbdInitPPLRW, _jbdKcall, _jbdMachPort,
+                            _jbdProcSetDebugged, _jbdRebuildTrustCache, _jbdRemoteLog,
+                            _jbdTransferKcall, _jbdTransferPPLRW, _kalloc, _kcall,
+                            _kfree, _kread16, _kread32, _kread64, _kread8, _kread_ptr,
+                            _kreadbuf, _kwrite16, _kwrite32, _kwrite64, _kwrite8,
+                            _kwritebuf, _launchd_xpc_send_message, _mapIn,
+                            _mappingDestroy, _memcmp_masked, _pac_loop,
+                            _patchfind_find, _patchfind_seek_back, _physread16,
+                            _physread32, _physread64, _physread8, _physread_ptr,
+                            _physreadbuf, _physwrite16, _physwrite32, _physwrite64,
+                            _physwrite8, _physwritebuf,
+                            _pmap_cs_entry_dump_entitlements,
+                            _pmap_cs_entry_replace_entitlements,
+                            _pmap_enter_options_addr, _pmap_lv2, _pmap_remove,
+                            _pmap_set_type, _proc_dump_entitlements, _proc_for_pid,
+                            _proc_get_pid, _proc_get_proc_ro, _proc_get_task,
+                            _proc_get_text_vnode, _proc_get_ucred,
+                            _proc_get_vnode_by_file_descriptor, _proc_iterate,
+                            _proc_replace_entitlements, _proc_ro_get_ucred,
+                            _proc_set_debugged, _ptrauth_utils_sign_blob_generic,
+                            _recoverPACPrimitives, _self_proc, _self_task,
+                            _sendJBDMessage, _signState, _stringKFree, _stringKalloc,
+                            _task_get_first_thread, _task_get_vm_map,
+                            _thread_get_act_context, _tlbFlush,
+                            _ubcinfo_iterate_csblobs, _ucred_get_cr_label,
+                            _vm_map_get_pmap, _vnode_dump_entitlements,
+                            _vnode_get_ubcinfo, _vnode_replace_entitlements,
+                            _walkPageTable, _windowDestroy, _windowPerform ]
+    objc-classes:         [  ]
+    objc-ivars:           [  ]
+...

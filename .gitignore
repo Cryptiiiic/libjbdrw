@@ -1,0 +1,5 @@
+.idea
+*.deb
+*.dylib
+*.dSYM
+.tmp
