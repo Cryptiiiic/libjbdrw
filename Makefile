@@ -9,32 +9,32 @@ CC = xcrun clang -arch arm64 -target arm64-apple-darwin -miphoneos-version-min=1
 
 release:
 	$(CC) $(RELEASE_CFLAGS) $(wildcard src/*.m) -DVERSION=$(VERSION) -o libjbdrw.$(VERSION).dylib
-	codesign -f -s - libjbdrw.$(VERSION).dylib
+	ldid -S libjbdrw.$(VERSION).dylib
 debug:
 	$(CC) $(DEBUG_CFLAGS) $(wildcard src/*.m) -DVERSION=$(VERSION) -o libjbdrw.$(VERSION).dylib
-	codesign -f -s - libjbdrw.$(VERSION).dylib
+	ldid -S libjbdrw.$(VERSION).dylib
 
 pack:
 	rm -rf .tmp || true
 	mkdir .tmp
 	cd .tmp && \
-	mkdir -p com.cryptic.libjbdrw/DEBIAN && \
-	mkdir -p com.cryptic.libjbdrw/var/jb/usr/lib/libkrw/ && \
+	mkdir -p com.cryptiiiic.libjbdrw/DEBIAN && \
+	mkdir -p com.cryptiiiic.libjbdrw/var/jb/usr/lib/libkrw/ && \
 	pwd && \
-	touch com.cryptic.libjbdrw/DEBIAN/control && \
-	cp ../libjbdrw.$(VERSION).dylib com.cryptic.libjbdrw/var/jb/usr/lib/libkrw/ && \
-	( echo 'Package: com.cryptic.libjbdrw'; \
+	touch com.cryptiiiic.libjbdrw/DEBIAN/control && \
+	cp ../libjbdrw.$(VERSION).dylib com.cryptiiiic.libjbdrw/var/jb/usr/lib/libkrw/ && \
+	( echo 'Package: com.cryptiiiic.libjbdrw'; \
 	  echo 'Name: libjbdrw'; \
-	  echo 'Author: Cryptic'; \
-	  echo 'Maintainer: Cryptic'; \
+	  echo 'Author: Cryptiiiic'; \
+	  echo 'Maintainer: Cryptiiiic'; \
 	  echo 'Architecture: iphoneos-arm64'; \
 	  echo 'Version: $(VERSION)'; \
 	  echo 'Priority: optional'; \
 	  echo 'Section: Development'; \
 	  echo 'Description: Plugin for libkrw interacing with fugu15 jailbreakd'; \
 	  echo 'Homepage: https://github.com/Cryptiiiic/libjbdrw'; \
-	) > com.cryptic.libjbdrw/DEBIAN/control && \
-	dpkg-deb -Zzstd -b com.cryptic.libjbdrw ../com.cryptic.libjbdrw_$(VERSION)_iphoneos-arm64.deb && \
+	) > com.cryptiiiic.libjbdrw/DEBIAN/control && \
+	dpkg-deb -Zzstd -b com.cryptiiiic.libjbdrw ../com.cryptiiiic.libjbdrw_$(VERSION)_iphoneos-arm64.deb && \
 	rm -rf .tmp || true
 
 pack_release: release
