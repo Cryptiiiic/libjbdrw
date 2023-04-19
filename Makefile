@@ -5,7 +5,7 @@ build_debug: | clean pack_debug
 VERSION=0
 RELEASE_CFLAGS = -DNDEBUG -Os -std=gnu11 -flto=thin
 DEBUG_CFLAGS = -DNDEBUG -g -O0 -std=gnu11
-CC = xcrun clang -arch arm64 -target arm64-apple-darwin -miphoneos-version-min=11.0 -arch arm64e -target arm64e-apple-darwin -miphoneos-version-min=12.0 -isysroot $(shell xcrun --sdk iphoneos --show-sdk-path) -Wl,-export_dynamic -shared -Iinclude -Isrc -Llib -ljailbreak -framework Foundation
+CC = xcrun clang -arch arm64 -target arm64-apple-darwin -miphoneos-version-min=11.0 -arch arm64e -target arm64e-apple-darwin -miphoneos-version-min=12.0 -isysroot $(shell xcrun --sdk iphoneos --show-sdk-path) -Wl,-export_dynamic -shared -Iinclude -Isrc -Llib -ljailbreak -framework Foundation -D__FILENAME__="\"jbdrw.m\""
 
 release:
 	$(CC) $(RELEASE_CFLAGS) $(wildcard src/*.m) -DVERSION=$(VERSION) -o libjbdrw.$(VERSION).dylib

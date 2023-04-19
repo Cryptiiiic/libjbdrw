@@ -3,3 +3,6 @@
 *.dylib
 *.dSYM
 .tmp
+.DS_Store
+compile_commands.json
+
