@@ -5,7 +5,7 @@
 static int kbasehelper(uint64_t *kbase) {
     uint64_t slide = bootInfo_getUInt64(@"kernelslide");
     if(!slide) {
-        JBLogDebug("[!]: %s: %s: Failed bootInfo_getUInt64 kernelslide! (Version: %d)\n", __FILENAME__, __func__, VERSION);
+        JBLogDebug("[!]: %s: %s: Failed bootInfo_getUInt64 kernelslide! (Version: %d)\n", __FILE__, __func__, VERSION);
         return -1;
     }
     *kbase = slide + 0xFFFFFFF007004000;
@@ -17,10 +17,10 @@ krw_plugin_initializer_t krw_initializer(krw_handlers_t handlers) {
     handlers->version = (uint64_t)(VERSION);
     int ret = jbdInitPPLRW();
     if(ret) {
-        JBLogDebug("[!]: %s: %s: Failed jbdInitPPLRW! (Version: %llu)\n", __FILENAME__, __func__, handlers->version);
+        JBLogDebug("[!]: %s: %s: Failed jbdInitPPLRW! (Version: %llu)\n", __FILE__, __func__, handlers->version);
         return (krw_plugin_initializer_t)-1;
     }
-    JBLogDebug("[*]: %s: %s: Successfully initialized jbdInitPPLRW! (Version: %llu)\n", __FILENAME__, __func__, handlers->version);
+    JBLogDebug("[*]: %s: %s: Successfully initialized jbdInitPPLRW! (Version: %llu)\n", __FILE__, __func__, handlers->version);
 
     handlers->kbase = (krw_kbase_func_t)(kbasehelper);
     handlers->kread = (krw_kread_func_t)(kreadbuf);
@@ -30,6 +30,6 @@ krw_plugin_initializer_t krw_initializer(krw_handlers_t handlers) {
     handlers->kcall = (krw_kcall_func_t)(jbdKcall);
     handlers->physread = (krw_physread_func_t)(physreadbuf);
     handlers->physwrite = (krw_physwrite_func_t)(physwritebuf);
-    JBLogDebug("[*]: %s: %s: Successfully initialized jbdrw krw plugin! (Version: %llu)\n", __FILENAME__, __func__, handlers->version);
+    JBLogDebug("[*]: %s: %s: Successfully initialized jbdrw krw plugin! (Version: %llu)\n", __FILE__, __func__, handlers->version);
     return 0;
 }
